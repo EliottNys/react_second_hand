@@ -1,19 +1,25 @@
-import ListItem from "../ListItem/ListItem";
+import ItemCard from "../ItemCard/ItemCard";
 
 export default function ItemList() {
   return (
-    <div>
-      <ListItem
+    <div className="w-1/3">
+      <ItemCard
         title="Fridge"
-        imgSrc="/vercel.svg"
         price="100€"
         description="White fridge, good state but noisy"
-      />
-      <ListItem
-        title="Microwave"
         imgSrc="/vercel.svg"
+      />
+      <ItemCard
+        title="Microwave"
         price="45€"
         description="700W Microwave, almost new."
+        imgSrc="/vercel.svg"
+      />
+      <ItemCard
+        title="Firewood"
+        price="Best offer"
+        description="Oak wood, 1m long, 30cm diameter, price negotiable. Cut in 2020."
+        imgSrc="/vercel.svg"
       />
     </div>
   );
