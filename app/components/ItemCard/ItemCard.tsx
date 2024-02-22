@@ -20,8 +20,8 @@ export default function ItemCard(props: ItemCardProps) {
         <Image
           alt="Item Picture"
           src={props.imgSrc}
-          width={270}
-          height={270}
+          height={500}
+          width={500}
           className="object-cover rounded-xl"
         />
       </CardBody>

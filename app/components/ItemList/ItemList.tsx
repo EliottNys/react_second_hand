@@ -2,7 +2,7 @@ import ItemCard from "../ItemCard/ItemCard";
 
 export default function ItemList() {
   return (
-    <div>
+    <div className="grid grid-cols-4">
       <ItemCard
         title="Fridge"
         price="100€"
