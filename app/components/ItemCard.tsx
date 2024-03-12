@@ -1,5 +1,5 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import Image from "next/image";
+import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+// import Image from "next/image";
 
 interface ItemCardProps {
   imgSrc: string;
@@ -18,6 +18,7 @@ export default function ItemCard(props: ItemCardProps) {
       </CardHeader>
       <CardBody className="overflow-visible py-2">
         <Image
+          isZoomed
           alt="Item Picture"
           src={props.imgSrc}
           height={500}
