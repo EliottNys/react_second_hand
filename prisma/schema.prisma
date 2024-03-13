@@ -31,5 +31,15 @@ model Item {
   location    String
   condition   String
   sold        Boolean   @default(false)
+}
 
+model SimpleItem {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+}
+
+model Test {
+  id    Int    @id @default(autoincrement())
+  title String
 }
