@@ -9,8 +9,26 @@ import {
   SelectItem,
   Textarea,
 } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Page() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0.0);
+
+  const router = useRouter();
+  const createAd = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    await fetch("/api/item", {
+      method: "POST",
+      body: JSON.stringify({
+        title: title,
+        description: description,
+      }),
+    });
+    router.refresh();
+  };
   const categories: string[] = [
     "Electronics",
     "Furniture",
@@ -25,13 +43,20 @@ export default function Page() {
     <div>
       <h1 className="p-3 m-auto w-44 text-2xl">Place an Ad:</h1>
       <div className="p-3 grid grid-cols-4 gap-3">
-        <Input type="title" label="Title" isRequired className="col-span-4" />
+        <Input
+          type="title"
+          label="Title"
+          isRequired
+          className="col-span-4"
+          onChange={(e) => setTitle(e.target.value)}
+        />
         <Textarea
           type="description"
           label="Description"
           className="col-span-4"
           minRows={5}
           maxRows={15}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <RadioGroup
           className="col-span-4 bg-white rounded-lg p-3"
@@ -63,6 +88,7 @@ export default function Page() {
               </select>
             </div>
           }
+          onChange={(e) => setPrice(parseFloat(e.target.value))}
         />
         <Select label="Select a Category" isRequired>
           {categories.map((category) => (
@@ -73,7 +99,7 @@ export default function Page() {
         </Select>
         {/* Image */}
       </div>
-      <Button className="m-3" color="primary">
+      <Button className="m-3" color="primary" onClick={createAd}>
         Place the ad
       </Button>
     </div>
