@@ -14,7 +14,7 @@ export default function Page() {
         <Input isRequired type="password" label="password">
           password
         </Input>
-        <Input isRequired type="repeat password" label="repeat password">
+        <Input isRequired type="password" label="repeat password">
           repeat password
         </Input>
       </div>
