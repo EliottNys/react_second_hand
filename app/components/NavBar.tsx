@@ -20,6 +20,7 @@ export default function NavigationBar() {
         <NavButton title="Home" link="." current={true} />
         <NavButton title="Categories" link="categories" />
         <NavButton title="Saved" link="saved" />
+        <NavButton title="Place an Ad" link="place-ad" />
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
