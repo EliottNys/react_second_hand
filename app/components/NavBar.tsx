@@ -24,6 +24,9 @@ export default function NavigationBar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
+          <Link href="/api/auth/signin">Sign in with Google</Link>
+        </NavbarItem>
+        <NavbarItem className="hidden lg:flex">
           <Link href="login">Login</Link>
         </NavbarItem>
         <NavbarItem>
