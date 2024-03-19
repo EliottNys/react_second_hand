@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import NavButton from "./NavButton";
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-} from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
+import SignInButtons from "./SignInButtons";
 
 export default function NavigationBar() {
   return (
@@ -22,19 +17,7 @@ export default function NavigationBar() {
         <NavButton title="Saved" link="saved" />
         <NavButton title="Place an Ad" link="place-ad" />
       </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/api/auth/signin">Sign in with Google</Link>
-        </NavbarItem>
-        <NavbarItem className="hidden lg:flex">
-          <Link href="login">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="signup" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
+      <SignInButtons />
     </Navbar>
   );
 }
