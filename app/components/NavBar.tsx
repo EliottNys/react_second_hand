@@ -1,11 +1,11 @@
 import { Logo } from "./Logo";
 import NavButton from "./NavButton";
 import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
-import SignInButtons from "./SignInButtons";
 import ProfileButton from "./ProfileButton";
-import Goog from "./ProfileAvatar";
+import { auth } from "@/auth";
 
-export default function NavigationBar() {
+export default async function NavigationBar() {
+  const session = await auth();
   return (
     <Navbar shouldHideOnScroll isBordered className="rounded-lg bg-blue">
       <NavbarBrand>
@@ -18,8 +18,7 @@ export default function NavigationBar() {
         <NavButton title="Saved" link="saved" />
         <NavButton title="Place an Ad" link="place-ad" />
       </NavbarContent>
-      <SignInButtons />
-      <ProfileButton />
+      <ProfileButton session={session} />
     </Navbar>
   );
 }
