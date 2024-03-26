@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { Logo } from "./Logo";
 import NavButton from "./NavButton";
 import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import SignInButtons from "./SignInButtons";
+import ProfileButton from "./ProfileButton";
+import Goog from "./ProfileAvatar";
 
 export default function NavigationBar() {
   return (
@@ -18,6 +19,7 @@ export default function NavigationBar() {
         <NavButton title="Place an Ad" link="place-ad" />
       </NavbarContent>
       <SignInButtons />
+      <ProfileButton />
     </Navbar>
   );
 }
