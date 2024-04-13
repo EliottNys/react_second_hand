@@ -27,7 +27,7 @@ model Item {
   description String?
   price       Float
   imgSrc      String
-  category    String
+  category    Category
   location    String
   condition   String
   sold        Boolean   @default(false)
