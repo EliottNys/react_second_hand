@@ -1,7 +1,8 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-// import Image from "next/image";
+import Link from "next/link";
 
 interface ItemCardProps {
+  id: number;
   imgSrc: string;
   title: string;
   price: string;
@@ -10,22 +11,24 @@ interface ItemCardProps {
 
 export default function ItemCard(props: ItemCardProps) {
   return (
-    <Card isPressable className="py-4">
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <h1 className="font-bold text-large">{props.title}</h1>
-        <h2 className="text-tiny uppercase font-bold">{props.price}</h2>
-        <p className="text-default-500">{props.description}</p>
-      </CardHeader>
-      <CardBody className="overflow-visible py-2">
-        <Image
-          isZoomed
-          alt="Item Picture"
-          src={props.imgSrc}
-          height={500}
-          width={500}
-          className="object-cover rounded-xl"
-        />
-      </CardBody>
-    </Card>
+    <Link href={`/item/${props.id}`} passHref>
+      <Card isPressable className="py-4">
+        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+          <h1 className="font-bold text-large">{props.title}</h1>
+          <h2 className="text-tiny uppercase font-bold">{props.price}</h2>
+          <p className="text-default-500">{props.description}</p>
+        </CardHeader>
+        <CardBody className="overflow-visible py-2">
+          <Image
+            isZoomed
+            alt="Item Picture"
+            src={props.imgSrc}
+            height={500}
+            width={500}
+            className="object-cover rounded-xl"
+          />
+        </CardBody>
+      </Card>
+    </Link>
   );
 }
