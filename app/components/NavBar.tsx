@@ -13,7 +13,7 @@ export default async function NavigationBar() {
         <p className="font-bold text-inherit">Second Life</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavButton title="Home" link="." current={true} />
+        <NavButton title="Home" link="/" current={true} />
         <NavButton title="Categories" link="categories" />
         <NavButton title="Saved" link="saved" />
         <NavButton title="Place an Ad" link="place-ad" />
