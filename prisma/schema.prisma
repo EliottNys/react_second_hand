@@ -43,3 +43,11 @@ model Test {
   id    Int    @id @default(autoincrement())
   title String
 }
+
+model Category {
+  id     Int    @id @default(autoincrement())
+  name   String
+  superCategoryId    Int?
+  superCategory      Category?      @relation("subcategory", fields: [superCategoryId], references: [id])
+  subcategories      Category[]     @relation("subcategory")
+}
