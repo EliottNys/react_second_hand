@@ -27,7 +27,8 @@ model Item {
   description String?
   price       Float
   imgSrc      String
-  category    Category
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId], references: [id])
   location    String
   condition   String
   sold        Boolean   @default(false)
@@ -50,4 +51,5 @@ model Category {
   superCategoryId    Int?
   superCategory      Category?      @relation("subcategory", fields: [superCategoryId], references: [id])
   subcategories      Category[]     @relation("subcategory")
+  items  Item[]
 }
