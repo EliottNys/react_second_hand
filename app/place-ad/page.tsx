@@ -3,6 +3,10 @@ import PlaceAdForm from "../components/PlaceAdForm";
 
 export default async function Page() {
   const categories = await getCategories();
-  const categoryNames = categories.map((category) => category.name);
-  return <PlaceAdForm categories={categoryNames} />;
+  const categoryList = categories.map((category) => [
+    category.name,
+    category.id,
+  ]);
+  console.log(categoryList);
+  return <PlaceAdForm categoryList={categoryList} />;
 }

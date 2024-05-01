@@ -38,6 +38,9 @@ model SimpleItem {
   id          Int       @id @default(autoincrement())
   title       String
   description String?
+  price       Float
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId], references: [id])
 }
 
 model Test {
@@ -52,4 +55,5 @@ model Category {
   superCategory      Category?      @relation("subcategory", fields: [superCategoryId], references: [id])
   subcategories      Category[]     @relation("subcategory")
   items  Item[]
+  simpleItems SimpleItem[]
 }

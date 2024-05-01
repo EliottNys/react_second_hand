@@ -13,13 +13,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface PlaceAdFormProps {
-  categories: string[];
+  categoryList: Array<any>;
 }
 
 export default function PlaceAdForm(props: PlaceAdFormProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0.0);
+  const [category, setCategory] = useState(0);
 
   const router = useRouter();
   const createAd = async (e: React.SyntheticEvent) => {
@@ -29,6 +30,8 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
       body: JSON.stringify({
         title: title,
         description: description,
+        price: price,
+        categoryId: category,
       }),
     });
     router.refresh();
@@ -84,10 +87,18 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
           }
           onChange={(e) => setPrice(parseFloat(e.target.value))}
         />
-        <Select label="Select a Category" isRequired>
-          {props.categories.map((category) => (
-            <SelectItem className="text-black" key={category} value={category}>
-              {category}
+        <Select
+          label="Select a Category"
+          onChange={(e) => setCategory(parseInt(e.target.value))}
+          isRequired
+        >
+          {props.categoryList.map((category) => (
+            <SelectItem
+              className="text-black"
+              key={category[1]}
+              value={category[1]}
+            >
+              {category[0]}
             </SelectItem>
           ))}
         </Select>
