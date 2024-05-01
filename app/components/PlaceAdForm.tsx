@@ -21,6 +21,7 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0.0);
   const [category, setCategory] = useState(0);
+  const [condition, setConditon] = useState("Acceptable");
 
   const router = useRouter();
   const createAd = async (e: React.SyntheticEvent) => {
@@ -32,6 +33,7 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
         description: description,
         price: price,
         categoryId: category,
+        condition: condition,
       }),
     });
     router.refresh();
@@ -59,6 +61,8 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
           className="col-span-4 bg-white rounded-lg p-3"
           label="Condition"
           orientation="horizontal"
+          value={condition}
+          onValueChange={(value) => setConditon(value)}
         >
           <Radio value={"New"}>New</Radio>
           <Radio value={"Like New"}>Like New</Radio>
