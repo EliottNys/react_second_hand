@@ -12,6 +12,7 @@ export default async function Page({ params }: { params: { item: string } }) {
         description={item?.description || ""}
         price={item?.price.toString() || "0.0"}
         imgSrc="/plant.jpg"
+        condition={item?.condition || ""}
       />
     </div>
   );

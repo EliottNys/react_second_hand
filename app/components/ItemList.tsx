@@ -17,6 +17,7 @@ export default async function ItemList(props: ItemListProps) {
           price={item.price}
           description={item.description || ""}
           imgSrc="/plant.jpg"
+          condition={item.condition}
         />
       ))}
     </div>
