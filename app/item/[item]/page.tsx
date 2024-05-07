@@ -13,6 +13,7 @@ export default async function Page({ params }: { params: { item: string } }) {
         price={item?.price.toString() || "0.0"}
         imgSrc="/plant.jpg"
         condition={item?.condition || ""}
+        category={item?.category?.name || ""}
       />
     </div>
   );
