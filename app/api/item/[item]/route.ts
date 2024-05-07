@@ -4,6 +4,7 @@ import { NextRequest } from "next/server";
 export async function getItem(id: number) {
   const res = await prisma.simpleItem.findUnique({
     where: { id },
+    include: { category: true },
   });
   return res;
 }
