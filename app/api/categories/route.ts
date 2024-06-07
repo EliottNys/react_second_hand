@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  const { id, name, superCategoryId } = await req.json();
+  const { id, name } = await req.json();
 
   try {
     const updatedCategory = await prisma.category.update({
