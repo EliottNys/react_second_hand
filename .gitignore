@@ -41,3 +41,6 @@ next-env.d.ts
 /prisma/dev.db-journal
 /prisma/migration-lock
 /prisma/migrations
+
+# uploads
+/public/uploads
