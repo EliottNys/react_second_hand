@@ -1,5 +1,6 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import Link from "next/link";
+import ConditionTag from "./ConditionTag";
 
 interface ItemCardProps {
   id: number;
@@ -7,6 +8,7 @@ interface ItemCardProps {
   title: string;
   price: string;
   description: string;
+  condition: string;
 }
 
 export default function ItemCard(props: ItemCardProps) {
@@ -14,7 +16,10 @@ export default function ItemCard(props: ItemCardProps) {
     <Link href={`/item/${props.id}`} passHref>
       <Card isPressable className="py-4">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-          <h1 className="font-bold text-large">{props.title}</h1>
+          <div className="flex">
+            <h1 className="font-bold text-large">{props.title}</h1>
+            <ConditionTag condition={props.condition} />
+          </div>
           <h2 className="text-tiny uppercase font-bold">{props.price}</h2>
           <p className="text-default-500">{props.description}</p>
         </CardHeader>

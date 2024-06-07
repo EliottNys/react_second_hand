@@ -14,9 +14,10 @@ export default async function ItemList(props: ItemListProps) {
         <ItemCard
           id={item.id}
           title={item.title}
-          price="100€"
+          price={item.price}
           description={item.description || ""}
           imgSrc="/plant.jpg"
+          condition={item.condition}
         />
       ))}
     </div>

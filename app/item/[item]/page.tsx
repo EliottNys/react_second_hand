@@ -10,8 +10,10 @@ export default async function Page({ params }: { params: { item: string } }) {
         sellerName="Paul S."
         publishedDate="12/03/2024"
         description={item?.description || ""}
-        price="50€"
+        price={item?.price.toString() || "0.0"}
         imgSrc="/plant.jpg"
+        condition={item?.condition || ""}
+        category={item?.category?.name || ""}
       />
     </div>
   );
