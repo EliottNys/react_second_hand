@@ -42,6 +42,7 @@ model SimpleItem {
   categoryId  Int
   category    Category  @relation(fields: [categoryId], references: [id])
   condition   String?
+  imgSrc      String
 }
 
 model Test {
