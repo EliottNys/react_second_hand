@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const { name, superCategoryId } = await req.json();
+  const { name } = await req.json();
 
   try {
     const newCategory = await prisma.category.create({
