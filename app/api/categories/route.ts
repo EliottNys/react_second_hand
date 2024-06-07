@@ -18,7 +18,6 @@ export async function POST(req: NextRequest) {
     const newCategory = await prisma.category.create({
       data: {
         name,
-        superCategoryId,
       },
     });
     return Response.json(newCategory);
@@ -35,7 +34,6 @@ export async function PUT(req: NextRequest) {
       where: { id },
       data: {
         name,
-        superCategoryId,
       },
     });
     return Response.json(updatedCategory);
