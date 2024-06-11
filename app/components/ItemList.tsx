@@ -18,6 +18,7 @@ export default async function ItemList(props: ItemListProps) {
           description={item.description || ""}
           imgSrc="/plant.jpg"
           condition={item.condition}
+          user={item.username}
         />
       ))}
     </div>
