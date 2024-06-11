@@ -13,19 +13,19 @@ export const {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    credentials({
-      name: "credentials",
-      credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials, req) {
-        // check in db
-        // okay ? => return user, something like this:
-        // const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
-        return null;
-      },
-    }),
+    // credentials({
+    //   name: "credentials",
+    //   credentials: {
+    //     email: { label: "Email", type: "text" },
+    //     password: { label: "Password", type: "password" },
+    //   },
+    //   async authorize(credentials, req) {
+    //     // check in db
+    //     // okay ? => return user, something like this:
+    //     // const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
+    //     return null;
+    //   },
+    // }),
   ],
   session: { strategy: "jwt" }, //session is stored in cookie (default)
   callbacks: {
