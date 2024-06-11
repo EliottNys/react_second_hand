@@ -16,7 +16,7 @@ export default async function ItemList(props: ItemListProps) {
           title={item.title}
           price={item.price}
           description={item.description || ""}
-          imgSrc="/plant.jpg"
+          imgSrc={item.imgSrc}
           condition={item.condition}
           user={item.username}
         />

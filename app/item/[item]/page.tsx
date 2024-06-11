@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: { item: string } }) {
         publishedDate="12/03/2024"
         description={item?.description || ""}
         price={(item?.price.toString() || "0.0") + "€"}
-        imgSrc="/plant.jpg"
+        imgSrc={item?.imgSrc || ""}
         condition={item?.condition || ""}
         category={item?.category?.name || ""}
       />
