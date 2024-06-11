@@ -7,10 +7,10 @@ export default async function Page({ params }: { params: { item: string } }) {
     <div>
       <Item
         title={item?.title || ""}
-        sellerName="Paul S."
+        sellerName={item?.username || ""}
         publishedDate="12/03/2024"
         description={item?.description || ""}
-        price={item?.price.toString() || "0.0"}
+        price={(item?.price.toString() || "0.0") + "€"}
         imgSrc="/plant.jpg"
         condition={item?.condition || ""}
         category={item?.category?.name || ""}
