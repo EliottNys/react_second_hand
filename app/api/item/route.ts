@@ -64,6 +64,7 @@ export async function POST(req: Request) {
         categoryId: categoryId,
         imgSrc: fileUrl,
         userEmail: session?.user?.email as string,
+        username: session?.user?.name as string,
       },
     });
     console.log("Created Item:");
