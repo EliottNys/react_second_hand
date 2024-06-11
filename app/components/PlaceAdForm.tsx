@@ -22,21 +22,32 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
   const [price, setPrice] = useState(0.0);
   const [category, setCategory] = useState(0);
   const [condition, setConditon] = useState("Acceptable");
+  const [image, setImage] = useState<File | null>(null);
 
   const router = useRouter();
   const createAd = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    await fetch("/api/item", {
-      method: "POST",
-      body: JSON.stringify({
-        title: title,
-        description: description,
-        price: price,
-        categoryId: category,
-        condition: condition,
-      }),
-    });
-    router.refresh();
+    try {
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("price", price.toString());
+      formData.append("categoryId", category.toString());
+      formData.append("condition", condition);
+      if (image) {
+        formData.append("image", image);
+      }
+      const response = await fetch("/api/item", {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error("Failed to create an ad");
+      }
+      router.refresh();
+    } catch (error) {
+      console.error("Error creating ad:", error);
+    }
   };
   return (
     <div>
@@ -106,7 +117,15 @@ export default function PlaceAdForm(props: PlaceAdFormProps) {
             </SelectItem>
           ))}
         </Select>
-        {/* Image */}
+        <Input
+          type="file"
+          label="Image"
+          isRequired
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            setImage(file || null);
+          }}
+        />
       </div>
       <Button className="m-3" color="primary" onClick={createAd}>
         Place the ad
