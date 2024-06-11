@@ -3,8 +3,10 @@ import { prisma } from "@/db";
 import mime from "mime";
 import { join } from "path";
 import { stat, mkdir, writeFile } from "fs/promises";
+import { auth } from "@/auth";
 
 export async function POST(req: Request) {
+  const session = await auth();
   const formData = await req.formData();
 
   const title = formData.get("title") as string;
@@ -61,6 +63,7 @@ export async function POST(req: Request) {
         condition: condition,
         categoryId: categoryId,
         imgSrc: fileUrl,
+        userEmail: session?.user?.email as string,
       },
     });
     console.log("Created Item:");
