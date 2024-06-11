@@ -37,6 +37,7 @@ model Item {
 model SimpleItem {
   id          Int       @id @default(autoincrement())
   title       String
+  userEmail   String
   description String?
   price       Float
   categoryId  Int
