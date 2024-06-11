@@ -9,6 +9,7 @@ interface ItemCardProps {
   price: string;
   description: string;
   condition: string;
+  user: string;
 }
 
 export default function ItemCard(props: ItemCardProps) {
@@ -21,7 +22,7 @@ export default function ItemCard(props: ItemCardProps) {
             <ConditionTag condition={props.condition} />
           </div>
           <h2 className="text-tiny uppercase font-bold">{props.price}</h2>
-          <p className="text-default-500">{props.description}</p>
+          <p className="text-default-500">{props.user}</p>
         </CardHeader>
         <CardBody className="overflow-visible py-2">
           <Image
