@@ -7,6 +7,5 @@ export default async function Page() {
     category.name,
     category.id,
   ]);
-  console.log(categoryList);
   return <PlaceAdForm categoryList={categoryList} />;
 }
