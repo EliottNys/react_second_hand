@@ -8,7 +8,7 @@ export default async function Page({ params }: { params: { item: string } }) {
       <Item
         title={item?.title || ""}
         sellerName={item?.username || ""}
-        publishedDate="12/03/2024"
+        publishedDate={item?.publishedAt ? item.publishedAt.toDateString() : ""}
         description={item?.description || ""}
         price={(item?.price.toString() || "0.0") + "€"}
         imgSrc={item?.imgSrc || ""}
