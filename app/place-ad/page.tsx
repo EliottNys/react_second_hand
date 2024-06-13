@@ -1,4 +1,4 @@
-import { getCategories } from "../api/categories/route";
+import { getCategories } from "@/tools/tools";
 import PlaceAdForm from "../components/PlaceAdForm";
 
 export default async function Page() {
