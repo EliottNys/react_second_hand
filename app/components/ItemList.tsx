@@ -12,6 +12,7 @@ export default async function ItemList(props: ItemListProps) {
     <div className="grid grid-cols-4 gap-3">
       {items?.map((item: any) => (
         <ItemCard
+          key={item.id}
           id={item.id}
           title={item.title}
           price={item.price}
