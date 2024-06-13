@@ -1,5 +1,5 @@
 import ItemCard from "./ItemCard";
-import { getItems } from "../api/items/route";
+import { getItems } from "@/tools/tools";
 
 interface ItemListProps {
   page: number;

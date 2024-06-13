@@ -1,4 +1,4 @@
-import { getItem } from "@/app/api/item/[item]/route";
+import { getItem } from "@/tools/tools";
 import Item from "../../components/Item";
 
 export default async function Page({ params }: { params: { item: string } }) {
