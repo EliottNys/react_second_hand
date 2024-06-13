@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/db";
 import mime from "mime";
-import { join, resolve } from "path";
+import { resolve } from "path";
 import { stat, mkdir, writeFile } from "fs/promises";
 import { auth } from "@/auth";
 
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       year: "numeric",
     })
     .replace(/\//g, "-");
-  const uploadPath = join(uploadDir, relativeUploadDir);
+  const uploadPath = resolve(uploadDir, relativeUploadDir);
 
   try {
     await stat(uploadPath);
